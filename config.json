@@ -2,7 +2,7 @@
   "email": "ansellindner@gmail.com",
   "system": {
     "root": "guerilla",
-    "PORT": 8444,
+    "PORT": 8334,
     "version": {
       "current": "1.4.0",
       "available": "1.5.0"
