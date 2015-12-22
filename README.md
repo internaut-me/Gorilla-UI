@@ -1,6 +1,6 @@
-## Guerilla
+## Gorilla
 
-Guerilla is built on Node.js. It is optimized for use on the Bitcoin Mini. Visit our website and order one today [BitcoinMini.com](https://bitcoinmini.com/).
+Gorilla is built on Node.js. It is optimized for use on the Bitcoin Mini. Visit our website and order one today [BitcoinMini.com](https://bitcoinmini.com/).
 
 ## Installation
 
@@ -67,7 +67,7 @@ These packages are locally installed on the Mini, which means they are part of t
 	
 ## Other Software on the Mini
 
-Guerilla is designed to run on the Bitcoin Mini. Every piece of software was chosen for it's small and powerful nature to reduce the overall footprint of the Mini while keeping it fast and effienct.
+Gorilla is designed to run on the Bitcoin Mini. Every piece of software was chosen for it's small and powerful nature to reduce the overall footprint of the Mini while keeping it fast and effienct.
 
 All Minis come with [Arch Linux](https://www.archlinux.org/) as it's operating system and [Bitcoin Core](https://github.com/bitcoin/bitcoin) installed.
 
@@ -79,9 +79,9 @@ Any other questions please reach out to us here on github, or on reddit. Thank y
 
 ## License
 
-Guerilla is free and open-source software released under the MIT license.
+Gorilla is free and open-source software released under the MIT license.
 
 ## Copyright
 
-Guerilla (c) 2015 Mini Computing, LLC
+Gorilla (c) 2015 Mini Computing, LLC
 Released under MIT license
