@@ -1,0 +1,73 @@
+{
+	"name": "Mini api",
+	"value": "This is the api root.",
+"baseCalls": {
+	"start": {
+		"route": '/api/start',
+		"description": 'The info that is called to display be default on your UI.',
+		"response": {
+			"name": 'string',
+			"peers": 'int',
+			"block": 'int',
+			"difficulty": 'int',
+			"blockBehind": 'int',
+			"price": 'int',
+		}
+	},
+	"getBlock": {
+		"route": '/api/base/getblock/<input>',
+		"input": 'Hash of the block you are looking for information on.',
+		"description": 'Returns information about the block with the given hash.',
+		"response": 'obj'
+	},
+	"getBlockCount": {
+		"route": '/api/base/getblockcount',
+		"description": 'Returns the number of blocks in the longest block chain.',
+		"response": 'int'
+	},
+	"getBlockHash": {
+		"route": '/api/base/getblockhash/<input>',
+		"input": 'The index value of the block with the genesis block being 0.',
+		"description": 'Returns the number of blocks in the longest block chain.',
+		"response": 'string'
+	},
+	"getInfo": {
+		"route": '/api/base/getinfo',
+		"description": 'Return an object with info about your bitcoin instance.',
+		"response": {
+			"fill": "this in"
+		}
+	},
+	"getDifficulty": {
+		"route": '/api/base/getdifficulty',
+		"description": 'Returns the proof-of-work difficulty as a multiple of the minimum difficulty.',
+		"response": 'int'
+	},
+	"getPeerInfo": {
+		route: '/api/base/getpeerinfo',
+		description: 'Returns data about each connected node.',
+		response: 'obj'
+	},
+	help: {
+		route: '/api/base/help',
+		description: 'Returns the proof-of-work difficulty as a multiple of the minimum difficulty.',
+		response: 'int'
+	},
+	validateAddress: {
+		route: '/api/base/validateAddress/<input>',
+		input: 'A bitcoin address.',
+		description: 'Is this address a valid bitcoin address on livenet.',
+		response: 'boolean'
+	},
+	stop: {
+		route: '/api/base/stop',
+		description: 'Stop bitcoin server.',
+		response: 'boolean'
+	}
+},
+walletCalls: {
+
+},
+miningCalls: {
+	
+}

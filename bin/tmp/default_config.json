@@ -1,0 +1,19 @@
+{
+  "admin": "",
+  "adminpw": "",
+  "email": "ansellindner@gmail.com",
+  "PORT": 8444,
+  "version": {
+    "current": "1.4.0",
+    "available": "1.4.0"
+  },
+  "timeRunning": "",
+  "btc": {
+    "port": 8332,
+    "host": "localhost",
+    "user": "bitcoinrpc",
+    "pass": "PASSWORD",
+    "timeout": 30000,
+    "miniuser": "miniuser"
+  }
+}

@@ -1,0 +1,280 @@
+/**
+ *  Guerilla UI Styles
+ *
+ *  @author Ansel Lindner <ansellindner@protonmail.ch>
+ *  @link https://bitcoinmini.com
+ *  @copyright Copyright (c) 2015, Mini Computing
+ *  @license Open Source MIT
+ */
+/* variables */
+.orange {
+  color: #db9100;
+}
+.green {
+  color: #18C075;
+}
+.menu-label {
+  font-size: 10px;
+  color: #5c5c5c;
+}
+html,
+body {
+  height: 100vh;
+  padding: 0;
+}
+body {
+  position: relative;
+  background: #f2f2f2;
+  color: #333333;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 200 !important;
+}
+a {
+  color: inherit;
+  cursor: pointer;
+}
+a :hover {
+  color: inherit;
+}
+a :active {
+  color: inherit;
+}
+a :visited {
+  color: inherit;
+}
+hr {
+  background: #666;
+}
+ul,
+li {
+  list-style: none;
+  padding-left: 0;
+}
+.power-alert {
+  font-size: 16px;
+  margin: 10px;
+}
+.mobile-alert {
+  display: none;
+}
+#wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 60px 0 40px 250px;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+.ng-pageslide {
+  background: #222222;
+  margin: 0;
+  padding: 15px 0;
+  color: #dbdbdb;
+  font-family: 'Play', sans-serif;
+}
+.ng-pageslide a.slide-close {
+  font-size: 20px;
+}
+.ng-pageslide a.slide-close :hover {
+  color: inherit;
+}
+.ng-pageslide li.slide-item {
+  margin: 0;
+  padding: 15px 0;
+  width: 100%;
+}
+.ng-pageslide li.slide-item a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+/* stats menu */
+#stats-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 50px 0 0 0;
+  width: 250px;
+  height: 100%;
+  background: #222222;
+  z-index: 100;
+}
+li.dvd {
+  height: 1px;
+  background-color: #5c5c5c;
+  margin: 10px 0 0 0;
+  padding: 0;
+}
+@media only screen and (max-width: 480px) {
+  #stats-menu {
+    width: 100%;
+  }
+}
+#top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0 15px;
+  height: 50px;
+  width: 100%;
+  background: #222222;
+  z-index: 101;
+}
+.menu-item {
+  height: 50px;
+  padding: 10px 10px 0 10px;
+}
+.menu-item h5 {
+  font-size: 10px;
+  color: #5c5c5c;
+  margin-bottom: 0;
+  margin-top: 0;
+  text-transform: uppercase;
+}
+.menu-item p {
+  font-size: 20px;
+  font-family: 'Play', sans-serif;
+  color: #dbdbdb;
+  margin-bottom: 0;
+}
+.menu-item a:hover {
+  color: inherit;
+}
+.menu-item .logo {
+  height: 30px;
+  padding-top: 0px;
+  margin-top: -5px;
+  margin-left: -10px;
+}
+.menu-item .price {
+  padding-top: 0px;
+}
+.menu-item-connection {
+  height: 24px;
+  padding: 4px 10px;
+}
+.menu-item-connection h5 {
+  font-size: 10px;
+  color: #5c5c5c;
+  margin-bottom: 0;
+  margin-top: 0;
+  text-transform: uppercase;
+}
+.menu-item-connection h5 i {
+  font-size: 10px;
+  padding-left: 4px;
+}
+.menu-item-connection h5 .icons-lg {
+  font-size: 14px;
+}
+#sidebar {
+  padding-left: 0;
+  width: 100%;
+}
+.left {
+  width: 100%;
+}
+.p2p {
+  background: #1d1d1d;
+  height: 80px;
+  padding: 20px 0 0 0;
+  border-bottom: 1px solid #5c5c5c;
+  border-top: 1px solid #5c5c5c;
+}
+.p2p h5 {
+  font-size: 10px;
+}
+.p2p p {
+  font-size: 16px;
+}
+.menu-button h5 {
+  margin-top: 5px;
+}
+.top {
+  display: inline-block;
+  font-size: 20px;
+  color: #f2f2f2;
+}
+li.divider {
+  height: 1px;
+  background: #5c5c5c;
+  margin-bottom: 20px;
+}
+#menu.panel {
+  padding: 0;
+  background: #1d1d1d;
+  border-radius: 0;
+  border-bottom: 1px solid #5c5c5c;
+  border-top: 1px solid #5c5c5c;
+  position: fixed;
+  right: -300px;
+  /*left or right and the width of your navigation panel*/
+  width: 300px;
+  /*should match the above value*/
+  z-index: 100;
+}
+#menu.panel ul {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+#menu.panel ul li {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+#menu.panel ul li a {
+  display: block;
+  width: 100%;
+  padding: 5px 20px;
+  margin: 0;
+  line-height: 50px;
+  font-size: 16px;
+  color: #f2f2f2;
+}
+#menu.panel ul li a:hover {
+  text-decoration: none!important;
+  background: #222222;
+}
+#menu.panel ul li a .glyphicon {
+  font-size: 19.2px;
+}
+#menu.panel ul li.slide-group-label {
+  line-height: 20px;
+  padding-left: 5px;
+  font-size: 10px;
+  color: #5c5c5c;
+}
+.menu-links {
+  font-size: 24px;
+  text-align: center;
+  color: #222;
+  position: absolute;
+  top: 500px;
+}
+/* ===================  Media Mobile max 480  =================== */
+@media (max-width: 480px) {
+  #stats-menu {
+    width: 100%;
+  }
+  #mobile-menu-icon {
+    display: inline-block;
+  }
+  .mobile-alert {
+    display: block;
+  }
+  .start-stop {
+    position: static;
+    margin-top: 50px;
+  }
+  .menu-links {
+    position: static;
+  }
+  .wrapper {
+    display: none;
+  }
+}

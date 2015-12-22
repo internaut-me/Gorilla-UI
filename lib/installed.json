@@ -1,0 +1,16 @@
+{
+    "explorer": {
+        "path": "/explore",
+        "version": "0.1.0",
+        "icon": "",
+        "author": "",
+        "url": ""
+    },
+    "demo-app": {
+        "path": "/demo-app",
+        "version": "0.0.1",
+        "icon": "",
+        "author": "",
+        "url": ""
+    }
+}

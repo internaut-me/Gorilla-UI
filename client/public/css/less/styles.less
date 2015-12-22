@@ -1,0 +1,88 @@
+/**
+ *  Guerilla UI Styles
+ *
+ *  @author Ansel Lindner <ansellindner@protonmail.ch>
+ *  @link https://bitcoinmini.com
+ *  @copyright Copyright (c) 2015, Mini Computing
+ *  @license Open Source MIT
+ */
+
+/* variables */
+@import "variables.less";
+// Mixins
+.absoluteTL(@top, @left) {
+	position:absolute;
+	top:@top;
+	left:@left;
+}
+.fixedTL(@top, @left) {
+	position:fixed;
+	top:@top;
+	left:@left;
+}
+.absoluteBR(@bottom, @right) {
+	position:absolute;
+	bottom:@bottom;
+	right:@right;
+}
+.mar-pad(@margin, @padding) {
+	margin:@margin;
+	padding:@padding;
+}
+.menu-label {
+	font-size:@font-lg * .5;
+	color:@textLight;
+}
+
+html,body { height:100vh; padding:0;}
+body { position:relative; background:@light; 
+	color: @textDark; font-family: 'Open Sans', sans-serif; font-size:20px; font-weight: 200 !important;
+}
+a { 
+	color:inherit; 
+	cursor:pointer; 
+	:hover{color:inherit;}
+	:active{color:inherit;}
+	:visited{color:inherit;}
+}
+hr { background:#666; }
+ul,li {list-style: none; padding-left:0; }
+
+.power-alert { font-size:@font-md; margin:10px; }
+.mobile-alert { display:none; }
+
+#wrapper { 
+	.absoluteTL(0, 0);
+	.mar-pad(0, 60px 0 40px 250px);
+	height:100%;
+	width:100%; 
+	z-index: 1;
+}
+
+.ng-pageslide {
+    background: @menu;
+    .mar-pad(0, 15px 0);
+    color:#dbdbdb;
+    font-family:'Play', sans-serif;
+
+    a.slide-close {
+    	font-size:@font-lg;
+		:hover {
+			color:inherit;
+		}
+    }
+    li.slide-item {
+    	.mar-pad(0, 15px 0);
+    	width:100%; 
+
+    	a:hover {
+			text-decoration: none;
+			color:inherit;
+    	}
+    }
+
+}
+
+/* stats menu */
+@import "menus.less";
+// 

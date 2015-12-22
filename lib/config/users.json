@@ -1,0 +1,12 @@
+{
+  "admin": {
+    "email": "ansellindner@gmail.com",
+    "pass": "",
+    "pin": ""
+  },
+  "secondary": {
+    "email": "",
+    "pass": "",
+    "pin": ""
+  }
+}
