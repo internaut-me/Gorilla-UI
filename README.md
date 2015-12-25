@@ -1,14 +1,28 @@
 ## Gorilla
 
-Gorilla is built on Node.js. It is optimized for use on the Bitcoin Mini. Visit our website and order one today [BitcoinMini.com](https://bitcoinmini.com/).
+Gorilla is optimized for use on the Bitcoin Mini and built on Node.js. Visit our website and order one today [BitcoinMini.com](https://bitcoinmini.com/).
 
 ## Installation
+
+**Please note that the installation is based on the exact file structure on the Mini**
+If you don't use this file structure config.json contents will be deleted with error
+
+    // file structure
+    home   
+    |_ <mini root dir>
+        |_ .bitcoin
+        |_ Gorilla
 
 We are working on creating an npm module, but for now you have to download the zip from the left of the screen, unzip in our project directory, and do the following on the commandline from the project directory.
 
 Load the npm dependencies:
 
 `npm install`
+
+Load the bower dependencies:
+V 0.1.0 has none, but we included the file structure for you to add your own.
+
+`bower install`
 
 Run:
 
@@ -24,9 +38,9 @@ When a user shuts down or unplugs their Mini and plugs it back in, many times th
 
 ### Security
 
-The Mini is designed to run a server behind the router's firewall. The UI is protected from the wilds of the internet by the router's NAT routing protocol. Currently we do not recommend opening up ports on your router, (like 8332 for bitcoin), due to the security risk. We are actively working on this aspect to ensure a high base level of security. That also means Bitcoin Minis don't seed the network at this time. It does connect to peers, but doesn't offer the blockchain to download for new peers. The Mini functions as a fully operational Bitcoin full node.
+The Mini is designed to run a server behind the router's firewall. The UI is protected from the wilds of the internet by the router's NAT routing protocol, but that is not perfect. Currently we do not recommend opening up ports on your router, (like 8333 for bitcoin), due to the slight but real security risk. We are actively working on this aspect to ensure a high standard level of security. That also means Bitcoin Minis don't seed the network at this time. It does connect to peers, but doesn't offer the blockchain to download for new peers. The Mini functions as a fully operational Bitcoin full node.
 
-There is a chance that your ISP will contact you if you send emails from your Mini. Usually ISPs (your internet provider) thinks it's a virus that is sending spam emails. You can either explain it to them or tell them it was taken care of. You'll only be sending one email on boot, so it might not even raise their attention.
+There is a chance that your ISP will contact you if you send emails from your Mini. ISPs (your internet provider) can think it's a virus that is sending spam emails. You can either explain it to them or tell them it was taken care of. You'll only be sending one email on boot, so it might not even raise their attention.
 
 ### Globally Installed Packages
 
