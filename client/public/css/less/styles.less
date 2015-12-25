@@ -41,9 +41,9 @@ body { position:relative; background:@light;
 a { 
 	color:inherit; 
 	cursor:pointer; 
-	:hover{color:inherit;}
-	:active{color:inherit;}
-	:visited{color:inherit;}
+	&:hover{color:inherit;}
+	&:active{color:inherit;}
+	&:visited{color:inherit;}
 }
 hr { background:#666; }
 ul,li {list-style: none; padding-left:0; }
@@ -59,30 +59,14 @@ ul,li {list-style: none; padding-left:0; }
 	z-index: 1;
 }
 
-.ng-pageslide {
-    background: @menu;
-    .mar-pad(0, 15px 0);
-    color:#dbdbdb;
-    font-family:'Play', sans-serif;
-
-    a.slide-close {
-    	font-size:@font-lg;
-		:hover {
-			color:inherit;
-		}
-    }
-    li.slide-item {
-    	.mar-pad(0, 15px 0);
-    	width:100%; 
-
-    	a:hover {
-			text-decoration: none;
-			color:inherit;
-    	}
-    }
-
-}
+/* slide-out menu */
+@import "pageslide.less";
+// 
 
 /* stats menu */
 @import "menus.less";
+// 
+
+/* stats menu */
+@import "editTable.less";
 // 

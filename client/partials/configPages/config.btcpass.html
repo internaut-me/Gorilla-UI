@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+	<form class="editing-form">
+	  	<div class="panel-body">
+	  		<label for="email">Edit Bitcoin Password</label>
+	    	<input ng-model="edit.email" type="text" name="email" id="email" class="form-control"></input>
+	    	<br/>
+	    	<a ui-sref="config" class="btn btn-danger white"><i class="material-icons white">clear</i>&nbsp;&nbsp;Cancel</a>
+	  		<button type="submit" ng-submit="editEmail()" class="btn btn-default pull-right"><i class="material-icons">add</i>&nbsp;&nbsp;Save</button>
+	  	</div>
+	  	
+	</form>
+</div>
+
+{{edit.email}}

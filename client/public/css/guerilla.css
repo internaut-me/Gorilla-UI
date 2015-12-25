@@ -13,6 +13,27 @@
 .green {
   color: #18C075;
 }
+.edit {
+  color: #b2b2b2;
+}
+.edit:hover {
+  color: #333333;
+}
+.white {
+  color: #f2f2f2 !important;
+}
+.xlarge {
+  font-size: 28px;
+}
+.large {
+  font-size: 20px;
+}
+.medium {
+  font-size: 16px;
+}
+.small {
+  font-size: 12px;
+}
 .menu-label {
   font-size: 10px;
   color: #5c5c5c;
@@ -34,13 +55,13 @@ a {
   color: inherit;
   cursor: pointer;
 }
-a :hover {
+a:hover {
   color: inherit;
 }
-a :active {
+a:active {
   color: inherit;
 }
-a :visited {
+a:visited {
   color: inherit;
 }
 hr {
@@ -68,6 +89,7 @@ li {
   width: 100%;
   z-index: 1;
 }
+/* slide-out menu */
 .ng-pageslide {
   background: #222222;
   margin: 0;
@@ -75,24 +97,40 @@ li {
   color: #dbdbdb;
   font-family: 'Play', sans-serif;
 }
+.ng-pageslide .slider {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
 .ng-pageslide a.slide-close {
   font-size: 20px;
-}
-.ng-pageslide a.slide-close :hover {
-  color: inherit;
+  margin-top: -5px;
 }
 .ng-pageslide li.slide-item {
   margin: 0;
-  padding: 15px 0;
+  padding: 15px 10px;
   width: 100%;
+  height: 60px;
 }
-.ng-pageslide li.slide-item a:hover {
+.ng-pageslide li.slide-item:hover {
+  background: #1d1d1d;
+}
+.ng-pageslide li.slide-item a {
+  color: #f2f2f2;
+}
+.ng-pageslide li.slide-item a:hover,
+.ng-pageslide li.slide-item a:visited,
+.ng-pageslide li.slide-item a:focus {
+  text-transform: none;
   text-decoration: none;
   color: inherit;
 }
+.ng-pageslide li.slide-item a i {
+  vertical-align: bottom;
+}
 /* stats menu */
 #stats-menu {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   margin: 0;
@@ -140,9 +178,6 @@ li.dvd {
   font-family: 'Play', sans-serif;
   color: #dbdbdb;
   margin-bottom: 0;
-}
-.menu-item a:hover {
-  color: inherit;
 }
 .menu-item .logo {
   height: 30px;
@@ -277,4 +312,28 @@ li.divider {
   .wrapper {
     display: none;
   }
+}
+/* stats menu */
+.editing-table table {
+  word-wrap: break-word;
+}
+.editing-table table tbody tr td {
+  font-size: 16px;
+}
+.editing-table i {
+  font-size: 20.8px;
+  vertical-align: bottom;
+}
+.editing-title {
+  margin-bottom: 20px;
+}
+.editing-title h3 {
+  font-size: 28px;
+}
+.editing-title h3 i {
+  vertical-align: bottom;
+}
+.editing-form label {
+  font-weight: 400;
+  font-size: 16px;
 }

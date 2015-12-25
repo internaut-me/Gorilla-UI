@@ -15,7 +15,7 @@ module.exports = function bootTasks() {
 	btcConf();
 
 	var ipEmail = require('./tasks/ip-email');
-	//ipEmail();
+	ipEmail();
 
 	var liveSince = require('./tasks/time-running');
 	liveSince();

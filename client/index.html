@@ -28,12 +28,12 @@
             <ul id="sidebar">
                 <!-- Status -->
                 <li class="menu-item-connection left">
-                    <div ng-if="info.loaded !== true">
+                    <div ng-hide="info.loaded">
                         <h5>
-                            <i class="material-icons orange pull-left">report_problem</i> Loading <img src="public/img/load.gif"/>
+                            <i class="material-icons orange pull-left">lens</i> Loading <img src="public/img/loader.gif" height="14px"/>
                         </h5>
                     </div>
-                    <div ng-if="info.loaded !== false">
+                    <div ng-show="info.loaded">
                         <h5>
                             <i class="material-icons green pull-left">lens</i>&nbsp;&nbsp;online
                             <i class="material-icons icons-lg pull-right">devices</i>
@@ -50,7 +50,7 @@
                         <h5>Peers</h5><p>{{ info.peers }}</p>
                     </div>
                     <div style="width:40%;display:inline-block;text-align:center;">
-                        <h5>Behind</h5><p>{{ info.blocksbehind }} Blocks</p>
+                        <h5>Behind</h5><p>{{ info.blocksbehind }}</p>
                     </div>
                 </li>
                 <!-- Info items -->
@@ -59,9 +59,11 @@
                 <li class="menu-item left"><p>{{ info.miniblock }}</p><h5>Block</h5></li>
                 <li class="menu-item left"><p>{{ info.difficulty }}</p><h5>Difficulty</h5></li>
                 <li class="dvd"></li>
-                <li class="menu-item left"><p>{{ stats.txns }}</p><h5>Transactions 24 Hrs</h5></li>
-                <li class="menu-item left"><p>{{ stats.blockmins }}</p><h5>Avg Mins per Block</h5></li>
-                <li class="menu-item left"><p>{{ stats.hashrate }}</p><h5>Hash Rate</h5></li>            
+                <li class="menu-item left"><p>{{ info.txns }}</p><h5>Transactions 24 Hrs</h5></li>
+                <li class="menu-item left"><p>{{ info.blockmins }}</p><h5>Avg Mins per Block</h5></li>
+                <li class="menu-item left"><p>{{ info.hashrate }}</p><h5>Hash Rate</h5></li>  
+                <li class="dvd"></li>
+                <li class="menu-item left"><p>$ {{ info.index }}</p><h5 style="color:#db9100;">Bitcoin Average Price</h5></li>
             </ul>
         </div><!-- /Left-sidebar -->
 
@@ -72,7 +74,15 @@
                     <img src="public/img/gorilla_orange.png" alt="logo" class="logo"/>
                 </li>
                 <!-- Bitcoin Price via theindex.io -->
-                <li class="menu-item top col-xs-1 col-xs-offset-8 text-right"><h5>Bitcoin</h5><p>{{ stats.index }}</p></li>
+                <li class="menu-item top col-xs-8"></li>
+                <li class="menu-item top col-xs-1">
+                    <a data-toggle="modal" 
+                       data-target="#updateModal"
+                       class="btn btn-danger pull-right" 
+                       id="updateBanner"
+                       ng-show="needsUpdate == true">Version {{updateVersion}} Ready
+                    </a>
+                </li>
                 <!-- System Control menu -->
                 <li class="menu-item top text-center pull-right" style="font-size:24px;cursor:pointer;">
                     <!-- use controller -->
@@ -81,15 +91,36 @@
                         <a href="" ng-click="toggle()"><i class="material-icons">more_vert</i></a>
                         <!-- menu content -->
                         <pageslide ps-open="checked" ps-auto-close="true">
-                            <div class="container-fluid">
-                                <a class="slide-close" href="" ng-click="toggle()"><i class="material-icons">arrow_forward</i></a>
+                            <div class="slider">
                                 <ul>
-                                    <li class="slide-item">This is item #1</li>
-                                    <li class="slide-item">This is item #2</li>
-                                    <li class="slide-item">This is item #3</li>
                                     <li class="slide-item">
-                                        <a class="dropdown-toggle" data-toggle="modal" data-target="#powerModal">
-                                            <i class="material-icons" style="padding-top:3px;">power_settings_new</i>&nbsp;&nbsp;Power
+                                        <a class="slide-close" href="" ng-click="toggle()">
+                                            <i class="material-icons">arrow_forward</i>
+                                        </a>
+                                    </li>
+                                    <li class="slide-item">
+                                        <a href="#/home">
+                                            <i class="material-icons orange">home</i>&nbsp;&nbsp;Home
+                                        </a>
+                                    </li>
+                                    <li class="slide-item">
+                                        <a href="#/settings">
+                                            <i class="material-icons orange">tune</i>&nbsp;&nbsp;Settings
+                                        </a>
+                                    </li>
+                                    <li class="slide-item">
+                                        <a href="#">
+                                            <i class="material-icons orange">tune</i>&nbsp;&nbsp;Extra
+                                        </a>
+                                    </li>
+                                    <li class="slide-item">
+                                        <a href="#/config">
+                                            <i class="material-icons orange">tune</i>&nbsp;&nbsp;Mini Config
+                                        </a>
+                                    </li>
+                                    <li class="slide-item">
+                                        <a data-toggle="modal" data-target="#powerModal">
+                                            <i class="material-icons orange">power_settings_new</i>&nbsp;&nbsp;Power
                                         </a>
                                     </li>
                                 </ul>
@@ -106,58 +137,72 @@
     
 
     <div id="wrapper">
-        <div class="container-fluid">
-            <!-- Update for alerts -->
-            <div class="alert alert-danger col-xs-12 hidden" role="alert" id="updateNotice">
-                <button type="button" class="btn btn-danger pull-right" id="updateBanner">UPDATE NOW</button>
-                <strong>Update Available</strong><br>
-                Summary: New Version Release<br>
-                If you have issues upgrading contact us at support@bitcoinmini.com.
-            </div>
-
-            <div class="alert alert-info alert-dismissible col-xs-12" role="alert" style="margin-top:20px;">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Gorilla UI v0.1.0!</strong><br><p>Defensive decentralization</p>
-            </div>
+        <div class="container-fluid">            
             
             <!-- Placeholder for partials -->
-            <!--<div class="container" ng-view></div> /partials -->
+            <div class="col-xs-12" ui-view></div>
 
         </div><!-- / container-fluid -->
 
     </div><!-- / wrapper -->
 
     
-
+    <!-- Power Shutdown/Restart modal -->
     <div class="modal fade" tabindex="-1" role="dialog" id="powerModal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Power</h4>
-          </div>
-          <div class="modal-body">
-            <div class="alert alert-danger power-alert" role="alert">
-                <strong>Warning!</strong><br>
-                These buttons should rarely be used. If you use the shutdown button, you must unplug the mini's power and then plug it back in. It will boot back up as normal.<br>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-success pull-left">Cancel</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Restart</button>
-            <button type="button" class="btn btn-danger">Shutdown</button>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Power</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-danger power-alert" role="alert">
+                        <strong>Warning!</strong><br>
+                        These buttons should rarely be used. If you use the shutdown button, you must unplug the mini's power and then plug it back in. It will boot back up as normal.<br>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success pull-left">Cancel</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Restart</button>
+                    <button type="button" class="btn btn-danger">Shutdown</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!-- Update/New Version modal -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="updateModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Update Now?</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-info power-alert" role="alert">
+                        <strong>Start your update? Your Mini will reboot after.</strong><br>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left">Cancel</button>
+                    <button type="button" class="btn btn-success">Update</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
     <!-- Script block -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.0/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
     <script src="scripts/pageslide.js"></script>
     
     <script src="scripts/guerilla.js"></script>
+    
     <script src="scripts/controllers/mainController.js"></script>
     <script src="scripts/controllers/pageslideController.js"></script>
+    <script src="scripts/controllers/configController.js"></script>
+    <script src="scripts/controllers/settingsController.js"></script>
+    <script src="scripts/services/getinfo.factory.js"></script>
     <!-- Bootstrap -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
