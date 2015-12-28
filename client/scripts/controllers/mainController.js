@@ -39,6 +39,7 @@ angular.module('guerilla').controller(
                 $http.get('http://'+ window.location.host +'/api/livesince'),
                 $http.get('http://'+ window.location.host +'/api/getinfo'),
                 $http.get('http://'+ window.location.host +'/api/networkstats'),
+                $http.get('http://'+ window.location.host +'/api/externalblock'),
                 $http.get('http://theindex.io/api/btc/index.php')
             ])
             // do this after all the get requests are completed
@@ -71,14 +72,14 @@ angular.module('guerilla').controller(
                 $scope.info.protocolversion = data[2].protocolversion;
                 $scope.info.miniblock = data[2].blocks;
 
-                $scope.info.txns = data[3].n_tx;
-                $scope.info.blockmins = (data[3].minutes_between_blocks).toFixed(2);
-                $scope.info.hashrate = Math.round(data[3].hash_rate);
-                $scope.info.timestamp = data[3].timestamp;
+                $scope.info.txns = data[3].stats.transaction_count;
+                $scope.info.blockmins = parseInt(data[3].stats.block_interval_min).toFixed(2);
+                $scope.info.hashrate = Math.round(data[3].stats.hash_rate_gh);
+                $scope.info.timestamp = data[3].stats.to;
 
-                $scope.info.blocksbehind = (data[3].n_blocks_total - $scope.info.miniblock) + ' Blocks';
+                $scope.info.blocksbehind = (data[4].totals.block_count - $scope.info.miniblock) + ' Blocks';
 
-                $scope.info.index = data[4];
+                $scope.info.index = data[5];
                 
                 // display the "ONLINE" message
                 $scope.info.loaded = true;
