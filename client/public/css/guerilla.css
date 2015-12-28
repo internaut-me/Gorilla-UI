@@ -103,9 +103,48 @@ li {
 }
 /* slide-out menu */
 #home-tiles .home-tile {
-  border: 1px solid black;
   width: 100%;
   height: 200px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+#home-tiles .markets {
+  background-image: url('../img/smartphone_in_hands.jpg');
+  z-index: 1;
+}
+#home-tiles .news {
+  background-image: url('../img/newspaper.jpg');
+  z-index: 1;
+}
+#home-tiles .dimmer {
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 3;
+  padding: 10px;
+}
+#home-tiles .dimmer:hover {
+  background: rgba(0, 0, 0, 0.95);
+}
+#home-tiles .dimmer .inner-tile {
+  height: 100%;
+  width: 100%;
+  border: 3px solid #f2f2f2;
+  padding: 10px;
+  color: #f2f2f2;
+  font-family: 'Play', sans-serif;
+}
+#home-tiles .dimmer .inner-tile h2 {
+  font-size: 13.2px;
+  font-weight: 500;
+  margin-top: 60%;
+}
+#home-tiles .dimmer .inner-tile p {
+  font-size: 12px;
+  font-weight: 300;
+}
+#prices-bar {
+  height: 200px;
+  background: #222222;
 }
 /* slide-out menu */
 .ng-pageslide {
@@ -236,18 +275,21 @@ li.dvd {
   border-bottom: 1px solid #5c5c5c;
   border-top: 1px solid #5c5c5c;
 }
-.p2p .trips {
+.p2p .quads {
   display: inline-block;
   text-align: center;
 }
 .p2p .livesince {
-  width: 37%;
+  width: 40%;
 }
 .p2p .peers {
-  width: 17%;
+  width: 15%;
 }
 .p2p .behind {
   width: 40%;
+}
+.p2p .info-button {
+  display: none;
 }
 .p2p h5 {
   font-size: 10px;
@@ -335,8 +377,24 @@ li.divider {
   #stats-menu .ghidden {
     display: none;
   }
+  #stats-menu .mobile-stats {
+    padding: 10px 20px 0!important;
+  }
   #sidebar {
     margin-bottom: 0;
+  }
+  .p2p .livesince {
+    width: 30%;
+  }
+  .p2p .peers {
+    width: 20%;
+  }
+  .p2p .behind {
+    width: 30%;
+  }
+  .p2p .info-button {
+    display: inline-block;
+    width: 15%;
   }
 }
 /* stats menu */

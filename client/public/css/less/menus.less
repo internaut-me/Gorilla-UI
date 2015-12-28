@@ -9,7 +9,6 @@
 li.dvd { height:1px; background-color:@textLight; .mar-pad(10px 0 0 0, 0); }
 .more {padding:10px 10px 0;}
 
-
 #top-bar { 
 	.fixedTL(0, 0); 
 	.mar-pad(0, 0 15px); 
@@ -81,13 +80,14 @@ li.dvd { height:1px; background-color:@textLight; .mar-pad(10px 0 0 0, 0); }
 	padding:20px 0 0 0; 
 	border-bottom:1px solid @textLight; border-top:1px solid @textLight;
 
-	.trips {
+	.quads {
 		display:inline-block;
 		text-align:center;
 	}
-	.livesince { width:37%; }
-	.peers { width:17%; }
+	.livesince { width:40%; }
+	.peers { width:15%; }
 	.behind { width:40%; }
+	.info-button { display:none; }
 	
 	h5 {
 		font-size:10px;
@@ -167,9 +167,16 @@ li.divider { height:1px;background:@textLight;margin-bottom:20px; }
 		.ghidden {
 			display:none;
 		}
+		.mobile-stats { padding:10px 20px 0!important; }
 	}
 	#sidebar { 
 		margin-bottom:0; 
+	}
+	.p2p { 
+		.livesince { width:30%; }
+		.peers { width:20%; }
+		.behind { width:30%; }
+		.info-button { display:inline-block; width:15%; }
 	}
 
 	// .p2p { 
