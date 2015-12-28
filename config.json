@@ -1,7 +1,7 @@
 {
   "email": "example@example.com",
   "system": {
-    "root": "guerilla",
+    "root": "miniuser",
     "PORT": 8334,
     "version": {
       "current": "1.4.0",
