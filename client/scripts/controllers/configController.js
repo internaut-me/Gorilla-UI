@@ -12,7 +12,7 @@ angular.module('guerilla').controller(
 
     	$scope.config = [];
 
-    	$http.get('http://192.168.0.160:8444/admin')
+    	$http.get('http://'+ window.location.host +'/admin')
             .then(function (response) {
 
                 $scope.config = response.data;

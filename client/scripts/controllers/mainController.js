@@ -35,10 +35,10 @@ angular.module('guerilla').controller(
 
             // build array of get requests from our APIs
             $q.all([
-                $http.get('http://192.168.0.160:8444/api/ip'),
-                $http.get('http://192.168.0.160:8444/api/livesince'),
-                $http.get('http://192.168.0.160:8444/api/getinfo'),
-                $http.get('http://192.168.0.160:8444/api/networkstats'),
+                $http.get('http://'+ window.location.host +'/api/ip'),
+                $http.get('http://'+ window.location.host +'/api/livesince'),
+                $http.get('http://'+ window.location.host +'/api/getinfo'),
+                $http.get('http://'+ window.location.host +'/api/networkstats'),
                 $http.get('http://theindex.io/api/btc/index.php')
             ])
             // do this after all the get requests are completed
@@ -96,7 +96,7 @@ angular.module('guerilla').controller(
         // We need to check if an update is needed
         function updates() {
             // call our API
-            $http.get('http://192.168.0.160:8444/admin/update')
+            $http.get('http://'+ window.location.host +'/admin/update')
             .then(function (response) {
                 // the needsUpdate variable is bound to the DOM by an ngIf
                 // The update button will appear if there is an update needed
