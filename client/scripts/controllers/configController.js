@@ -4,6 +4,7 @@
  *  A controller for viewing and updating config
  *  
  */
+'use strict';
 
 angular.module('guerilla').controller(
     'configController', 
@@ -17,6 +18,8 @@ angular.module('guerilla').controller(
                 $scope.config = response.data;
             });
 
+
+        //$scope.$emit('CONFIG');
 
     });
 

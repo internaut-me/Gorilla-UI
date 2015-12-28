@@ -14,6 +14,8 @@
     <link href='https://fonts.googleapis.com/css?family=Play' rel='stylesheet' type='text/css'>
     <!-- Local CSS -->
     <link href="public/css/guerilla.css" rel="stylesheet">
+    <!-- Angular -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.0/angular.min.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -23,12 +25,15 @@
 </head>
 <body>
     <div ng-controller="mainController">
+        <div ng-show="loader" 
+             style="position:fixed;left:0;top:0;width:100%;height:100%;z-index: 9999;background:rgba(34,34,34,1);display:flex;justify-content:center;align-items:center;"><img src="public/img/loader_large.gif" height="60px"/>
+        </div>
         <!-- Navigation -->
         <div id="stats-menu">
             <ul id="sidebar">
                 <!-- Status -->
                 <li class="menu-item-connection left">
-                    <div ng-hide="info.loaded">
+                    <div ng-show="!info.loaded">
                         <h5>
                             <i class="material-icons orange pull-left">lens</i> Loading <img src="public/img/loader.gif" height="14px"/>
                         </h5>
@@ -43,45 +48,35 @@
                     </div>
                 <!-- Connection items -->
                 <li class="menu-item left p2p">
-                    <div style="width:37%;display:inline-block;text-align:center;">
-                        <h5>Up Time</h5><p>{{ info.livesince }}</p>
+                    <div class="trips livesince">
+                        <h5>Up Time</h5><p id="forLoader">{{ info.livesince }}</p>
                     </div>
-                    <div style="width:17%;display:inline-block;text-align:center;">
+                    <div class="trips peers">
                         <h5>Peers</h5><p>{{ info.peers }}</p>
                     </div>
-                    <div style="width:40%;display:inline-block;text-align:center;">
+                    <div class="trips behind">
                         <h5>Behind</h5><p>{{ info.blocksbehind }}</p>
                     </div>
                 </li>
                 <!-- Info items -->
-                <li class="menu-item left"><p>{{ info.ip }}</p><h5>External IP</h5></li>
-                <li class="menu-item left"><p>{{ info.protocolversion }}</p><h5>Protocol Version</h5></li>
-                <li class="menu-item left"><p>{{ info.miniblock }}</p><h5>Block</h5></li>
-                <li class="menu-item left"><p>{{ info.difficulty }}</p><h5>Difficulty</h5></li>
-                <li class="dvd"></li>
-                <li class="menu-item left"><p>{{ info.txns }}</p><h5>Transactions 24 Hrs</h5></li>
-                <li class="menu-item left"><p>{{ info.blockmins }}</p><h5>Avg Mins per Block</h5></li>
-                <li class="menu-item left"><p>{{ info.hashrate }}</p><h5>Hash Rate</h5></li>  
-                <li class="dvd"></li>
-                <li class="menu-item left"><p>$ {{ info.index }}</p><h5 style="color:#db9100;">Bitcoin Average Price</h5></li>
+                <li class="menu-item left more ghidden"><p>{{ info.ip }}</p><h5>External IP</h5></li>
+                <li class="menu-item left more ghidden"><p>{{ info.protocolversion }}</p><h5>Protocol Version</h5></li>
+                <li class="menu-item left more ghidden"><p>{{ info.miniblock }}</p><h5>Block</h5></li>
+                <li class="menu-item left more ghidden"><p>{{ info.difficulty }}</p><h5>Difficulty</h5></li>
+                <li class="dvd ghidden"></li>
+                <li class="menu-item left more ghidden"><p>{{ info.txns }}</p><h5>Transactions 24 Hrs</h5></li>
+                <li class="menu-item left more ghidden"><p>{{ info.blockmins }}</p><h5>Avg Mins per Block</h5></li>
+                <li class="menu-item left more ghidden"><p>{{ info.hashrate }}</p><h5>Hash Rate</h5></li>  
+                <li class="dvd ghidden"></li>
+                <li class="menu-item left more ghidden"><p>$ {{ info.index }}</p><h5 style="color:#db9100;">Bitcoin Average Price</h5></li>
             </ul>
         </div><!-- /Left-sidebar -->
 
         <div id="top-bar">
             <ul id="top-list">
                 <!-- Brand -->
-                <li class="menu-item top col-xs-2">
+                <li class="menu-item top pull-left">
                     <img src="public/img/gorilla_orange.png" alt="logo" class="logo"/>
-                </li>
-                <!-- Bitcoin Price via theindex.io -->
-                <li class="menu-item top col-xs-8"></li>
-                <li class="menu-item top col-xs-1">
-                    <a data-toggle="modal" 
-                       data-target="#updateModal"
-                       class="btn btn-danger pull-right" 
-                       id="updateBanner"
-                       ng-show="needsUpdate == true">Version {{updateVersion}} Ready
-                    </a>
                 </li>
                 <!-- System Control menu -->
                 <li class="menu-item top text-center pull-right" style="font-size:24px;cursor:pointer;">
@@ -110,12 +105,12 @@
                                     </li>
                                     <li class="slide-item">
                                         <a href="#">
-                                            <i class="material-icons orange">tune</i>&nbsp;&nbsp;Extra
+                                            <i class="material-icons orange">person</i>&nbsp;&nbsp;Extra
                                         </a>
                                     </li>
                                     <li class="slide-item">
                                         <a href="#/config">
-                                            <i class="material-icons orange">tune</i>&nbsp;&nbsp;Mini Config
+                                            <i class="material-icons orange">settings</i>&nbsp;&nbsp;Control Panel
                                         </a>
                                     </li>
                                     <li class="slide-item">
@@ -124,26 +119,26 @@
                                         </a>
                                     </li>
                                 </ul>
-                                
                             </div>
                         </pageslide>
-
                     </div>
-                    
                 </li>
+                <li class="menu-item top pull-right">
+                    <a data-toggle="modal" 
+                       data-target="#updateModal"
+                       class="btn btn-danger pull-right" 
+                       id="updateBanner"
+                       ng-show="needsUpdate == true">Update to v{{updateVersion}}
+                    </a>
+                </li>
+                
             </ul><!-- /Top-list -->
         </div><!-- /Top-nav -->
     </div>
     
-
+    <!-- Placeholder for partials -->
     <div id="wrapper">
-        <div class="container-fluid">            
-            
-            <!-- Placeholder for partials -->
-            <div class="col-xs-12" ui-view></div>
-
-        </div><!-- / container-fluid -->
-
+            <div ui-view></div>
     </div><!-- / wrapper -->
 
     
@@ -191,27 +186,27 @@
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
-    <!-- Script block -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.0/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
-    <script src="scripts/pageslide.js"></script>
-    
-    <script src="scripts/guerilla.js"></script>
-    
-    <script src="scripts/controllers/mainController.js"></script>
-    <script src="scripts/controllers/pageslideController.js"></script>
-    <script src="scripts/controllers/configController.js"></script>
-    <script src="scripts/controllers/settingsController.js"></script>
-    <script src="scripts/services/getinfo.factory.js"></script>
-    <!-- Bootstrap -->
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    
-    
     <!-- Footer -->
     <footer>
         <!-- Put some copyright thing here -->
     </footer>
+
+    <!-- Library Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+    <script src="scripts/pageslide.js"></script>
+    <script src="scripts/angular-websocket.min.js"></script>
+    <!-- Main Angular Script -->
+    <script src="scripts/guerilla.js"></script>
+    <!-- Directives, Controllers, and Services Scripts -->
+    <script src="scripts/controllers/mainController.js"></script>
+    <script src="scripts/controllers/pageslideController.js"></script>
+    <script src="scripts/controllers/homeController.js"></script>
+    <script src="scripts/controllers/configController.js"></script>
+    <script src="scripts/controllers/settingsController.js"></script>
+    <script src="scripts/services/getinfo.factory.js"></script>
+    <!-- Non Angular Scripts Last -->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 </body>
 </html>

@@ -4,6 +4,7 @@
  *  A controller for the page slide menu
  *	The menu will concentrate on settings and so forth
  */
+'use strict';
 
 angular.module('guerilla').controller(
 	'pageslideController', 

@@ -1,79 +1,91 @@
-<div class="col-xs-12 editing-title">
-	<h3><i class="material-icons xlarge">tune</i>&nbsp;&nbsp;My Mini's Settings</h3>
+<div class="editing-title container-fluid">
+	<h3>
+		<i class="material-icons xlarge">settings</i>&nbsp;&nbsp;Control Panel
+		<a class="btn btn-default pull-right"><i class="material-icons">short_text</i>&nbsp;&nbsp;SEE ALL SETTINGS</a>
+	</h3>
+	<p>Your control panel has the settings for your Mini and your instance of Bitcoin.</p>
 </div>
 
-<div class="container-fluid editing-table">
+<div class="editing-table container-fluid">
 
-	<div class="col-xs-12 col-md-8">
-		
-		<!-- editing view -->
-		<div ui-view></div>
+	<div class="tile container-fluid">
+		<ul>
+			<li>
+				<form>
+					<div class="form-group">
+					    <label for="email" class="col-xs-12">Email&nbsp;&nbsp;
+					    	<span ng-show="saving.email"><img src="public/img/loader.gif" height="14px"/></span>
+					    </label>
+					    <div class="col-xs-8 col-sm-10">
+					    	<input ng-model="edit.email" type="text" name="email" id="email" class="form-control"></input>
+					    </div>
+					    <div class="col-xs-4 col-sm-2">
+					    	<button type="submit" ng-submit="editEmail()" class="btn btn-default btn-block"><i class="material-icons">add</i>&nbsp;&nbsp;Save</button>
+					    </div>
+					</div>
+				</form>
+			</li>
+			<li>
+				<form>
+					<div class="form-group">
+						<label for="email" class="col-xs-12">Gorilla's Port
+							<span ng-show="saving.port"><img src="public/img/loader.gif" height="14px"/></span>
+						</label>
+						<div class="col-xs-8 col-sm-10">
+							<input ng-model="edit.port" type="text" name="port" id="port" class="form-control"></input>
+						</div>
+						<div class="col-xs-4 col-sm-2">
+							<button type="submit" ng-submit="editPassword()" class="btn btn-default btn-block"><i class="material-icons">add</i>&nbsp;&nbsp;Save</button>
+						</div>
+					</div>
+				</form>
+			</li>
+			<li>
+				<form>
+					<div class="form-group">
+						<label for="username" class="col-xs-12">Bitcoin API Username
+							<span ng-show="saving.btcuser"><img src="public/img/loader.gif" height="14px"/></span>
+						</label>
+						<div class="col-xs-8 col-sm-10">
+							<input ng-model="edit.username" type="text" name="username" id="username" class="form-control"></input>
+						</div>
+						<div class="col-xs-4 col-sm-2">
+							<button type="submit" ng-submit="editUsername()" class="btn btn-default btn-block"><i class="material-icons">add</i>&nbsp;&nbsp;Save</button>
+						</div>
+					</div>
+				</form>
+			</li>
+			<li>
+				<form>
+					<div class="form-group">
+						<label for="password" class="col-xs-12">Bitcoin API Password
+							<span ng-show="saving.btcpass"><img src="public/img/loader.gif" height="14px"/></span>
+						</label>
+						<div class="col-xs-8 col-sm-10">
+							<input ng-model="edit.password" type="text" name="password" id="password" class="form-control"></input>
+						</div>
+						<div class="col-xs-4 col-sm-2">
+							<button type="submit" ng-submit="editPassword()" class="btn btn-default btn-block"><i class="material-icons">add</i>&nbsp;&nbsp;Save</button>
+						</div>
+					</div>
+				</form>
+			</li>
+			<li>
+				<form>
+					<div class="form-group">
+						<label for="timeout" class="col-xs-12">Bitcoin API Timeout
+							<span ng-show="saving.timeout"><img src="public/img/loader.gif" height="14px"/></span>
+						</label>
+						<div class="col-xs-8 col-sm-10">
+							<input ng-model="edit.timeout" type="text" name="timeout" id="timeout" class="form-control"></input>
+						</div>
+						<div class="col-xs-4 col-sm-2">
+							<button type="submit" ng-submit="editTimeout()" class="btn btn-default btn-block"><i class="material-icons">add</i>&nbsp;&nbsp;Save</button>
+						</div>
+					</div>
+				</form>
+			</li>
+		</ul>
+	</div><!-- / tile -->
 
-		<!-- System config table -->
-		<h4>SYSTEM</h4>
-		<table class="table">
-			<tbody>
-				<tr>
-					<td>Email:</td>
-					<td class="text-right"><a ui-sref="config.editemail"><i class="material-icons edit">edit</i></a>&nbsp;&nbsp;{{ config.email }}</td>
-				</tr>
-				<tr>
-					<td>Port:</td>
-					<td class="text-right"><a ui-sref="config.editport"><i class="material-icons edit">edit</i></a>&nbsp;&nbsp;{{ config.system.PORT }}</td>
-				</tr>
-				<tr>
-					<td>Mininame:</td>
-					<td class="text-right">{{ config.system.root }}</td>
-				</tr>
-				<tr>
-					<td>Software Version:</td>
-					<td class="text-right">{{ config.system.version.current }}</td>
-				</tr>
-
-				<tr>
-					<th colspan="2"><h4>BITCOIN CONFIG</h4></th>
-				</tr>
-
-				<tr>
-					<td>Username:</td>
-					<td class="text-right"><a ui-sref="config.editbtcname"><i class="material-icons edit">edit</i></a>&nbsp;&nbsp;{{ config.btc.user }}</td>
-				</tr>
-				<tr>
-					<td>Password:</td>
-					<td class="text-right"><a ui-sref="config.editbtcpass"><i class="material-icons edit">edit</i></a>&nbsp;&nbsp;{{ config.btc.pass }}</td>
-				</tr>
-				<tr>
-					<td>Timeout:</td>
-					<td class="text-right"><a ui-sref="config.timeout"><i class="material-icons edit">edit</i></a>&nbsp;&nbsp;{{ config.btc.timeout }}</td>
-				</tr>
-				<tr>
-					<td>Port:</td>
-					<td class="text-right">{{ config.btc.port }}</td>
-				</tr>
-			</tbody>
-		</table>
-	</div><!-- / table -->
-	
-	<div class="col-xs-12 col-md-4 panel panel-warning">
-		<h4>A warning panel</h4>
-		<p>Here we can give a quick reference for the options, maybe with links to more info. Add this to give the table on the left a better layout.</p>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<p>Something else....</p>
-	</div>
-
-</div>
+</div><!-- / editing-table -->

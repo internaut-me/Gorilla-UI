@@ -3,9 +3,9 @@
  * Copyright(c) 2015 Mini Computing, LLC
  * MIT Licensed
  */
+'use strict';
 
-
-var guerilla = angular.module('guerilla', ['pageslide-directive', 'ui.router'])
+var guerilla = angular.module('guerilla', ['pageslide-directive', 'ui.router', 'ngWebSocket'])
 
 // Some routing configuration
 // This should effect the ng-view div
@@ -18,36 +18,12 @@ var guerilla = angular.module('guerilla', ['pageslide-directive', 'ui.router'])
 	$stateProvider
 	.state('home', {
 	  	url: "/home",
-	  	templateUrl: "partials/home.html"
+	  	templateUrl: "partials/home.html",
+	  	controller: "homeController"
 	})
 	.state('config', {
 	  	url: "/config",
 	  	templateUrl: "partials/config.html",
-	  	controller: "configController"
-	})
-	.state('config.editemail', {
-	  	url: "/email",
-	  	templateUrl: "partials/configPages/config.email.html",
-	  	controller: "configController"
-	})
-	.state('config.editport', {
-	  	url: "/port",
-	  	templateUrl: "partials/configPages/config.port.html",
-	  	controller: "configController"
-	})
-	.state('config.editbtcname', {
-	  	url: "/editbtcname",
-	  	templateUrl: "partials/configPages/config.btcname.html",
-	  	controller: "configController"
-	})
-	.state('config.editbtcpass', {
-	  	url: "/editbtcpass",
-	  	templateUrl: "partials/configPages/config.btcpass.html",
-	  	controller: "configController"
-	})
-	.state('config.timeout', {
-	  	url: "/timeout",
-	  	templateUrl: "partials/configPages/config.timeout.html",
 	  	controller: "configController"
 	})
 	.state('settings', {

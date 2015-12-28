@@ -1,13 +1,10 @@
 .editing-table {
-	table {
-		word-wrap: break-word;
-		tbody {
-			tr {
-				td {
-					font-size: @font-md;
-				}
-			}
-		}
+
+	label {
+		font-weight: 500;
+		font-size: @font-lg * .7;
+		line-height: 1.5;
+		padding-top:10px;
 	}
 
 	i {
@@ -15,22 +12,38 @@
 		vertical-align: bottom;
 	}
 }
-
 .editing-title {
-	margin-bottom: 20px;
+	margin-bottom: 5px;
 	h3 {
 		font-size:@font-xl;
 		i {
 			vertical-align: bottom;
 		}
+		a {
+			margin-top:-10px;
+		}
+	}
+	p {
+		font-size:@font-md;
+		padding-top:8px;
 	}
 
 }
+.fullwidth {
+	width:100%;
+}
 
-.editing-form {
-
-	label {
-		font-weight: 400;
-		font-size: @font-md;
+@media @mobile {
+	.editing-title {
+		h3 {
+			font-size:@font-md;
+			i {
+				font-size:@font-md;
+			}
+		}
+		p {
+			font-size:@font-md *.7;
+		}
 	}
+	
 }

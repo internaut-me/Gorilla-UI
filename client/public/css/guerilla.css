@@ -88,6 +88,24 @@ li {
   height: 100%;
   width: 100%;
   z-index: 1;
+  background-image: linear-gradient(to top left, #bcbcbc, #e5ded3);
+}
+.tile {
+  padding: 0 15px 15px;
+  background: #f2f2f2;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+@media only screen and (max-width: 480px) {
+  #wrapper {
+    margin: 0;
+    padding: 120px 0 40px 0;
+  }
+}
+/* slide-out menu */
+#home-tiles .home-tile {
+  border: 1px solid black;
+  width: 100%;
+  height: 200px;
 }
 /* slide-out menu */
 .ng-pageslide {
@@ -146,10 +164,8 @@ li.dvd {
   margin: 10px 0 0 0;
   padding: 0;
 }
-@media only screen and (max-width: 480px) {
-  #stats-menu {
-    width: 100%;
-  }
+.more {
+  padding: 10px 10px 0;
 }
 #top-bar {
   position: fixed;
@@ -219,6 +235,19 @@ li.dvd {
   padding: 20px 0 0 0;
   border-bottom: 1px solid #5c5c5c;
   border-top: 1px solid #5c5c5c;
+}
+.p2p .trips {
+  display: inline-block;
+  text-align: center;
+}
+.p2p .livesince {
+  width: 37%;
+}
+.p2p .peers {
+  width: 17%;
+}
+.p2p .behind {
+  width: 40%;
 }
 .p2p h5 {
   font-size: 10px;
@@ -291,41 +320,38 @@ li.divider {
   position: absolute;
   top: 500px;
 }
-/* ===================  Media Mobile max 480  =================== */
-@media (max-width: 480px) {
+@media only screen and (max-width: 480px) {
   #stats-menu {
     width: 100%;
+    height: auto;
   }
-  #mobile-menu-icon {
-    display: inline-block;
+  #stats-menu .menu-item {
+    height: 50px;
+    padding: 10px 5px 0 5px;
   }
-  .mobile-alert {
-    display: block;
+  #stats-menu .menu-item p {
+    font-size: 12px;
   }
-  .start-stop {
-    position: static;
-    margin-top: 50px;
-  }
-  .menu-links {
-    position: static;
-  }
-  .wrapper {
+  #stats-menu .ghidden {
     display: none;
+  }
+  #sidebar {
+    margin-bottom: 0;
   }
 }
 /* stats menu */
-.editing-table table {
-  word-wrap: break-word;
-}
-.editing-table table tbody tr td {
-  font-size: 16px;
+.editing-table label {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.5;
+  padding-top: 10px;
 }
 .editing-table i {
   font-size: 20.8px;
   vertical-align: bottom;
 }
 .editing-title {
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 .editing-title h3 {
   font-size: 28px;
@@ -333,7 +359,24 @@ li.divider {
 .editing-title h3 i {
   vertical-align: bottom;
 }
-.editing-form label {
-  font-weight: 400;
+.editing-title h3 a {
+  margin-top: -10px;
+}
+.editing-title p {
   font-size: 16px;
+  padding-top: 8px;
+}
+.fullwidth {
+  width: 100%;
+}
+@media only screen and (max-width: 480px) {
+  .editing-title h3 {
+    font-size: 16px;
+  }
+  .editing-title h3 i {
+    font-size: 16px;
+  }
+  .editing-title p {
+    font-size: 11.2px;
+  }
 }

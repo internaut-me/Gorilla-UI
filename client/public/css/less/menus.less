@@ -7,11 +7,8 @@
 	z-index: 100;
 }
 li.dvd { height:1px; background-color:@textLight; .mar-pad(10px 0 0 0, 0); }
-@media @mobile {
-	#stats-menu {
-		width:100%;
-	}
-}
+.more {padding:10px 10px 0;}
+
 
 #top-bar { 
 	.fixedTL(0, 0); 
@@ -49,6 +46,7 @@ li.dvd { height:1px; background-color:@textLight; .mar-pad(10px 0 0 0, 0); }
 		padding-top:0px;
 	}
 }
+
 .menu-item-connection {
 	height:24px;
 	padding: 4px 10px;
@@ -81,7 +79,15 @@ li.dvd { height:1px; background-color:@textLight; .mar-pad(10px 0 0 0, 0); }
 	background:@menuDark; 
 	height:80px; 
 	padding:20px 0 0 0; 
-	border-bottom:1px solid @textLight; border-top:1px solid @textLight; 
+	border-bottom:1px solid @textLight; border-top:1px solid @textLight;
+
+	.trips {
+		display:inline-block;
+		text-align:center;
+	}
+	.livesince { width:37%; }
+	.peers { width:17%; }
+	.behind { width:40%; }
 	
 	h5 {
 		font-size:10px;
@@ -146,12 +152,48 @@ li.divider { height:1px;background:@textLight;margin-bottom:20px; }
 .menu-links { font-size:24px; text-align:center; color:#222; position:absolute; top:500px;}
 
 
-/* ===================  Media Mobile max 480  =================== */
-@media (max-width: 480px) {
-    #stats-menu { width:100%; }
-    #mobile-menu-icon { display:inline-block; }
-    .mobile-alert { display:block; }
-    .start-stop { position:static; margin-top:50px;}
-    .menu-links { position:static; }
-    .wrapper { display:none; }
+@media @mobile {
+	#stats-menu {
+		width:100%;
+		height:auto;
+
+		.menu-item { 
+			height:50px; 
+			padding:10px 5px 0 5px; 
+			p {
+				font-size:@font-lg * .6; 
+			}
+		}
+		.ghidden {
+			display:none;
+		}
+	}
+	#sidebar { 
+		margin-bottom:0; 
+	}
+
+	// .p2p { 
+	// 	height:100px!important;
+
+	// 	.trips {
+	// 		text-align:left!important;
+	// 	}
+	// 	.livesince { width:100%!important; }
+	// 	.peers { width:100%!important; }
+	// 	.behind { width:100%!important; }
+
+	// 	p{
+	// 		font-size:@font-md * .8!important;
+	// 	}
+	// }
+	// .menu-item-connection {
+
+	// 	i {
+	// 		display:none;
+	// 	}
+	// }
+
+	// .more { 
+	// 	padding:10px 5px 0!important; 
+	// }
 }
