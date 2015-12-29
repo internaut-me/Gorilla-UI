@@ -1,8 +1,11 @@
 /**
  *  scripts/controllers/mainController.js
  *
- *  A controller for the main menus and bars
- *  Will load and loop every minute to update
+ *  A controller for the main menus and power
+ *  Loops include: 
+ *      checking Mini stats every 5 mins,
+ *      checking for updates every day,
+ *      restart loops every 5 secs when restarting
  */
 'use strict';
 
@@ -29,6 +32,11 @@ angular.module('guerilla').controller(
         // it will not check for updates if the page is not open
         var checkUpdate = setInterval(updates, 86400000); // every day
 
+        /**
+         *  Loader
+         *
+         *  STEVE TODO
+         */
         function loader() {
             // show "LOADING" to the user instead of ONLINE
             $scope.info.loaded = false;
@@ -94,7 +102,11 @@ angular.module('guerilla').controller(
 
         }
 
-        // We need to check if an update is needed
+        /**
+         *  Updates
+         *
+         *  STEVE TODO
+         */
         function updates() {
             // call our API
             $http.get('http://'+ window.location.host +'/admin/update')
@@ -104,6 +116,65 @@ angular.module('guerilla').controller(
                 $scope.needsUpdate = response.data.needsUpdate;
                 $scope.updateVersion = response.data.version;
             });
+        }
+
+        /**
+         *  Shutdown
+         *
+         *  Use this to avoid damage to bitcoind, and enable a bootup process that is fast.
+         *  STEVE TODO: finish the comment if needing more info
+         */
+        $scope.shutdown = function() {
+            // before shutdown, let's display a little loading div
+            $scope.systemProcess = true;
+            $scope.systemMessage = 'shutting down';
+            // use our API to shutdown with a small delay
+            setInterval(function() {
+                $http.get('http://'+ window.location.host +'/api/system/shutdown');
+                $scope.systemDetails = 'Your Mini can now be unplugged safely.';
+            }, 5000);
+        }
+
+        /**
+         *  Reboot
+         *
+         *  Since Angular runs in the client, we can use it to monitor restarts.
+         *  Here we display a restarting div, check for the server to be started, and then reload.
+         */
+        $scope.restart = function() {
+            // before restarting, let's display a little loading div
+            $scope.systemProcess = true;
+            $scope.systemMessage = 'restarting';
+            $scope.systemDetails = 'Do not close your browser window! Your browser will refresh when your Mini is back online.'
+
+            // use our API to restart
+            $http.get('http://'+ window.location.host +'/api/system/restart');
+
+            setInterval(checkIfRunning, 5000);
+
+            // Check if the mini is back
+            function checkIfRunning() {
+                $http.get('http://'+ window.location.host +'/api/system/running')
+                    // if successful call the .then
+                    .then(function (response) {
+
+                        // Tell the user the Mini is done, and reloading
+                        $scope.systemMessage = 'All done!'
+                        $scope.systemDetails = 'Refreshing...'
+
+                        // delay 2 secs so they can see the message
+                        setInterval(function() {
+                            // ui-router uses $state so reload it
+                            window.location.reload();
+                        }, 2000);
+                    // if unsucessful call the following and loop every 10 secs
+                    }, function (response) {
+                        if(!response) {
+                            console.log('not ready');
+                            setInterval(checkIfRunning, 5000);
+                        }
+                    });
+            }
         }
 
         // $scope.$on('CONFIG', function() { $scope.STATSMENU = true; });

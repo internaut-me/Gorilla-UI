@@ -25,6 +25,7 @@
 </head>
 <body>
     <div ng-controller="mainController">
+        <!-- Loading div -->
         <div ng-show="loader" 
              style="position:fixed;left:0;top:0;width:100%;height:100%;z-index: 9999;background:rgba(34,34,34,1);display:flex;justify-content:center;align-items:center;"><img src="public/img/loader_large.gif" height="60px"/>
         </div>
@@ -159,36 +160,47 @@
                 
             </ul><!-- /Top-list -->
         </div><!-- /Top-nav -->
+
+        <!-- Power Shutdown/Restart modal -->
+        <div class="modal fade" tabindex="-1" role="dialog" id="powerModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Power</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert alert-danger power-alert" role="alert">
+                            <h2><strong>Warning!</strong></h2><br/>
+                            These buttons should rarely be used. However, if you must restart or shutdown your Mini, they will shutdown bitcoind properly to avoid damage.<br/><br/>
+                            <strong>Shutdown</strong>
+                            If you use the shutdown button, you must unplug the Mini's power and plug it back in to reboot. When you plug it back in you'll most likely need to find the LAN IP address again on your router.<br/><br/>
+                            <strong>Restart</strong>
+                            Restarting will take approximately 2 minutes. Leave your browser open and it will reload the page when done.
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="" ng-click="restart()" class="btn btn-danger pull-left">Restart</a>
+                        <a href="" ng-click="shutdown()" class="btn btn-danger">Shutdown</a>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <!-- System Process div -->
+        <div ng-show="systemProcess" 
+             style="position:fixed;left:0;top:0;width:100%;height:100%;z-index:9998;background:rgba(34,34,34,1);padding-top:15%;">
+                <div>
+                    <h1 class="text-center"><img src="public/img/loader_large.gif" height="60px"/></h1>
+                    <p class="text-center" style="color:white;">Your Mini is {{ systemMessage }}...</p>
+                    <p class="text-center" style="color:white;">{{ systemDetails }}</p>
+                </div>
+        </div>
     </div><!-- / mainController -->
     
     <!-- Placeholder for partials -->
     <div id="wrapper">        
         <div ui-view></div>
     </div><!-- / wrapper -->
-
-    
-    <!-- Power Shutdown/Restart modal -->
-    <div class="modal fade" tabindex="-1" role="dialog" id="powerModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Power</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="alert alert-danger power-alert" role="alert">
-                        <strong>Warning!</strong><br>
-                        These buttons should rarely be used. If you use the shutdown button, you must unplug the mini's power and then plug it back in. It will boot back up as normal.<br>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success pull-left">Cancel</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Restart</button>
-                    <button type="button" class="btn btn-danger">Shutdown</button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
 
     <!-- Update/New Version modal -->
     <div class="modal fade" tabindex="-1" role="dialog" id="updateModal">
@@ -210,6 +222,8 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+
+    
 
     <!-- Footer -->
     <footer>
