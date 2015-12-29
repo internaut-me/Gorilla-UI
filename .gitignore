@@ -13,3 +13,5 @@ client_components
 
 # Mini Misc
 TODO.txt
+config.json
+/bin/tmp/backup_config.json

@@ -21,10 +21,6 @@ Load the npm dependencies:
 
 `npm install`
 
-Load the bower dependencies:
-V 0.1.0 has none, but we included the file structure for you to add your own.
-
-`bower install`
 
 Run:
 
@@ -32,7 +28,6 @@ Run:
 
 or
 
-Install pm2 (sudo pacman -S pm2) and
 `pm2 start guerilla -i 0`
 
 ## Setup
@@ -42,32 +37,30 @@ Find the internal IP address by logging into your router and finding the device 
 There is a disabled by default system to have the Mini email you the ip address but this is not recommended. Most routers are fairly easy to access with the use of web search for the model.
 
 
-
 ### Security
 
 You are responsible for understanding the ramifications of opening ports on your internet connection.  Please contact us with any questions.
 
 
-### Globally Installed Packages
+### Externally Installed Packages
 
-These packages are installed globally on the Mini for ease of use in development. 
+These applications need to be installed on the Mini for use.
 
-	Node.js
-	npm
-	Express.js
-	Bower
-	PM2
+	bitcoind & bitcoin-cli
+	Nodejs
+	NPM
+	PM2 (For Autostart and Load Balancing)
 
 
-### Locally Installed Packages
+### NPM Installed Packages
 
-These packages are locally installed on the Mini, which means they are part of the app itself and can be seen in the node_modules folder.
+These packages need to be installed on the Mini.
 
 	DEPENDENCIES
-	bitcoin
+    express
+    bitcoin
     bitcoinjs-lib
     body-parser
-    bower
     colors
     express
     fs-extra
@@ -77,7 +70,7 @@ These packages are locally installed on the Mini, which means they are part of t
     nodemailer-direct-transport
 
 	DEV DEPENDENCIES
-	grunt
+    grunt
     grunt-cli
     grunt-contrib-less
     grunt-contrib-watch
@@ -85,21 +78,27 @@ These packages are locally installed on the Mini, which means they are part of t
     sha1-file
     winston
 	
+
 ## The Bitcoin Mini
 
 Gorilla is designed to run on the Bitcoin Mini. Every piece of software was chosen for it's small and powerful nature to reduce the overall footprint of the Mini while keeping it fast and effienct.
 
 All Minis come with [Arch Linux](https://www.archlinux.org/) as it's operating system and Bitcoin Core installed with the approximately 52GB of blockchain data downloaded.
 
+
 ### Contributors
+
+We have bug and development bounties available. If you find a bug, create a pull request on our dev repo @ github.com/bitcoinmini/gorilla-ui. Bounties will be UP TO 0.1 btc for now based on how big it is, and we will increase that as we can. A list of wanted development bounties will soon be available on our subreddit r/bitcoinmini. Decentralize all the things.
 
 We will be publishing development bounties on our subreddit r/bitcoinmini in the near future. Contact us to be added to the early offer mailing list for development bounties.
 
 Any other questions please reach out to us here on github, or on reddit. Thank you.
 
+
 ## License
 
 Gorilla is free and open-source software released under the MIT license.
+
 
 ## Copyright
 
