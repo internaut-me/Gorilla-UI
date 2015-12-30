@@ -11,7 +11,7 @@
 /*================================= MODULE DEPENDENCIES ==*/
 var fs = require('fs-extra');
 var getJson = require('get-json');
-var config = require('../../config');
+var config = require('../../config.tmp.json');
 
 /**
  * Check with BitcoinMini.com to see if there is a new version available.
@@ -27,16 +27,11 @@ module.exports = function checkUpdate() {
         // if the current version and available aren't equal, update the available value in config.json
         if(config.system.version.current !== versionAvailable) {
 
-            // Backup file in tmp folder
-            fs.writeJson('./bin/tmp/backup_config.json', config , function (err) {
-                if (err) console.log(err);
-            });
-
             config.system.version.available = versionAvailable;
 
             // Serialize entire var content as JSON and write it to a file
             // this overwrites whole content
-            fs.writeJson('./config.json', config , function (err) {
+            fs.writeJson('./config.tmp.json', config , function (err) {
                 if (err) console.log(err);
             });
         }

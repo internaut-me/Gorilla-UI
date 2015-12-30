@@ -16,15 +16,12 @@ var bootTasks = require('./bin/boot');
 // Do a bunch of tasks when you start node
 // Each task can be run from the commandline too
 bootTasks();
-
 //================================= PARENT EXPRESS ==
 // parent express instance
 var mini = express();
-
 //================================= ROUTES ==
 // bring in the lib folder and pass it the mini instance
 require('./lib')(mini);
-
 //================================= SERVER LISTEN ==
 mini.listen(config.system.PORT);
 // print message to console

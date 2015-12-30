@@ -1,0 +1,19 @@
+{
+  "email": "example@example.com",
+  "system": {
+    "root": "guerilla",
+    "PORT": 8334,
+    "version": {
+      "current": "1.4.0",
+      "available": "1.5.0"
+    },
+    "liveSince": 1449309352752
+  },
+  "btc": {
+    "port": 8332,
+    "host": "localhost",
+    "user": "bitcoinrpc",
+    "pass": "password",
+    "timeout": 30000
+  }
+}
