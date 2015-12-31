@@ -111,7 +111,7 @@ angular.module('guerilla').controller(
          */
         function updates() {
             // check if it's needed
-            $http.get('http://'+ window.location.host +'/admin/update')
+            $http.get('http://'+ window.location.host +'/api/update')
             .then(function (response) {
                 // The update button will appear if there is an update needed
                 $scope.needsUpdate = response.data.needsUpdate;
@@ -151,10 +151,10 @@ angular.module('guerilla').controller(
             // use our API to restart
             $http.get('http://'+ window.location.host +'/admin/system/restart');
 
-            setInterval(checkIfRunning, 5000);
+            setInterval(checkRestart, 5000);
 
             // Check if the mini is back
-            function checkIfRunning() {
+            function checkRestart() {
                 $http.get('http://'+ window.location.host +'/api')
                     // if successful call the .then
                     .then(function (response) {
@@ -192,10 +192,10 @@ angular.module('guerilla').controller(
             // use our API to restart
             $http.get('http://'+ window.location.host +'/admin/system/update');
 
-            setInterval(checkIfDone, 10000);
+            setInterval(checkUpdate, 10000);
 
             // Check if the mini is back
-            function checkIfDone() {
+            function checkUpdate() {
                 $http.get('http://'+ window.location.host +'/api')
                     // if successful call the .then
                     .then(function (response) {
