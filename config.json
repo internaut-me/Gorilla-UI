@@ -1,15 +1,15 @@
 {
-  "email": "ansellindner@gmail.com",
+  "email": "example@example.com",
   "system": {
-    "root": "guerilla",
-    "PORT": 8444,
+    "root": "mini001",
+    "PORT": 8334,
     "liveSince": 1449309352752
   },
   "btc": {
     "port": 8332,
     "host": "localhost",
     "user": "bitcoinrpc",
-    "pass": "2U8Baskdjf9823hf398lsdkssYTHnCyANEAPWsuaaJAXD6u",
+    "pass": "password",
     "timeout": 30000
   }
 }
