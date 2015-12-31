@@ -1,10 +1,10 @@
 {
-  "admin": {
+  "Alice": {
     "email": "ansellindner@gmail.com",
     "pass": "",
     "pin": ""
   },
-  "secondary": {
+  "Bob": {
     "email": "",
     "pass": "",
     "pin": ""

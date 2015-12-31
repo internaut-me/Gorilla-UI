@@ -1,15 +1,59 @@
-<div class="container-fluid" id="home-tiles">
+<div class="editing-title container-fluid">
+	<h3>
+		<i class="material-icons xlarge">dashboard</i>&nbsp;&nbsp;Dashboard
+	</h3>
+</div>
 
-	<div class="col-xs-12 col-md-3">
-	   <div class="home-tile">
-	   
+<div class="container-fluid">
+	<div class="container-fluid" id="prices-bar">
+		<div class="col-xs-12 col-md-3">
+			<div class="exchange-group clearfix">
+				<div class="col-xs-6">
+					<p>BITFINEX</p>
+					<h4>$ {{ btfx.price }}</h4>
+				</div>
+				
+				<div class="col-xs-6 details">
+					<p class="alabel">CHANGE</p>
+					<p class="numbers" ng-class="btfx.up ? 'green-text' : 'red-text'">{{ btfx.chg }}</p>
+					<p class="alabel">VOLUME</p>
+					<p class="numbers vol">{{ btfx.vol }}</p>
+				</div>
+			</div>
 		</div>
 	</div>
-	<div class="col-xs-12 col-md-3">
-	   <div class="home-tile">
-	   
+</div>
+<br/>
+<br/>
+<br/>
+
+<div class="container-fluid" id="home-tiles">
+	<a href="#">
+		<div class="col-xs-12 col-md-3">
+		   	<div class="home-tile markets">
+		   		<div class="dimmer">
+		   			<div class="inner-tile">
+		   				<h2>MARKETS</h2>
+		   				
+		   				<p>The world's major exchanges.</p>
+		   			</div>
+		   		</div>
+		   
+			</div>
 		</div>
-	</div>
-	
-	
+	</a>
+	<a href="#">
+		<div class="col-xs-12 col-md-3">
+		   	<div class="home-tile news">
+		   		<div class="dimmer">
+		   			<div class="inner-tile">
+		   				<h2>NEWS</h2>
+		   				
+		   				<p>Contruct you News feed with rss.</p>
+		   			</div>
+		   		</div>
+		   
+			</div>
+		</div>
+	</a>
 </div>

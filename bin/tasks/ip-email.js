@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /*!
- * guerilla-mini
+ * gorilla-ui
  * Copyright(c) 2015 Mini Computing, LLC
  * MIT Licensed
  */
@@ -14,7 +14,7 @@ var internalIp = require('internal-ip');
 var nodemailer = require('nodemailer');
 var directTransport = require('nodemailer-direct-transport');
 
-var config = require('../../config');
+var config = require('../../config.tmp.json');
 
 /**
  * Send an email to the Mini owner with the internal ip address

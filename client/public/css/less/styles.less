@@ -48,8 +48,9 @@ a {
 hr { background:#666; }
 ul,li {list-style: none; padding-left:0; }
 
-.power-alert { font-size:@font-md; margin:10px; }
+.power-alert { font-size:@font-md*.8; margin:10px; }
 .mobile-alert { display:none; }
+.modal-p { font-size:@font-md*.8; }
 
 #wrapper { 
 	.absoluteTL(0, 0);
@@ -58,7 +59,7 @@ ul,li {list-style: none; padding-left:0; }
 	width:100%; 
 	z-index: 1;
 
-	background-image: linear-gradient(
+	background: linear-gradient(
       to top left, 
       @gray1, @gray2
     );

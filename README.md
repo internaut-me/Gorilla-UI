@@ -12,9 +12,9 @@ If you don't use this file structure config.json contents will be deleted with e
     // file structure
     <root dir / >
     |_ home
-    	|_ user home folder
-        	|_ .bitcoin
-        	|_ Gorilla-UI
+        |_ user home folder
+            |_ .bitcoin
+            |_ Gorilla-UI
 
 
 Load the npm dependencies:
@@ -46,17 +46,17 @@ You are responsible for understanding the ramifications of opening ports on your
 
 These applications need to be installed on the Mini for use.
 
-	bitcoind & bitcoin-cli
-	Nodejs
-	NPM
-	PM2 (For Autostart and Load Balancing)
+    bitcoind & bitcoin-cli
+    Nodejs
+    NPM
+    PM2 (For Autostart and Load Balancing)
 
 
 ### NPM Installed Packages
 
 These packages need to be installed on the Mini.
 
-	DEPENDENCIES
+    DEPENDENCIES
     express
     bitcoin
     bitcoinjs-lib
@@ -69,7 +69,7 @@ These packages need to be installed on the Mini.
     nodemailer
     nodemailer-direct-transport
 
-	DEV DEPENDENCIES
+    DEV DEPENDENCIES
     grunt
     grunt-cli
     grunt-contrib-less
@@ -77,7 +77,7 @@ These packages need to be installed on the Mini.
     morgan
     sha1-file
     winston
-	
+    
 
 ## The Bitcoin Mini
 

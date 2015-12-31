@@ -5,16 +5,24 @@
  */
 'use strict';
 
+// Create our app and assign it to the variable guerilla
+// We inject our dependencies as well
 var guerilla = angular.module('guerilla', ['pageslide-directive', 'ui.router', 'ngWebSocket'])
 
 // Some routing configuration
-// This should effect the ng-view div
+// This is ui.router specific routing, allowing us to view within views
+// More info at https://github.com/angular-ui/ui-router
 .config(function($stateProvider, $urlRouterProvider) {
    
-	// For any unmatched url, redirect to /state1 
+	/**
+	 *	Since the ui-view directive is outside the mainController on index.html
+	 *	it matches to the otherwise route. If we route to "/" it will interfere
+	 *	with mainController.
+	 */ 
+	// For any unmatched url, redirect to #/home
 	$urlRouterProvider.otherwise("/home");
-	// 
-	// Now set up the states 
+	
+	// ui.router uses States instead of routes, so we need the stateProvider 
 	$stateProvider
 	.state('home', {
 	  	url: "/home",
@@ -26,11 +34,4 @@ var guerilla = angular.module('guerilla', ['pageslide-directive', 'ui.router', '
 	  	templateUrl: "partials/config.html",
 	  	controller: "configController"
 	})
-	.state('settings', {
-	  	url: "/settings",
-	  	templateUrl: "partials/settings.html",
-	  	controller: "settingsController"
-	})
 });
-
-// TODO add some configuration

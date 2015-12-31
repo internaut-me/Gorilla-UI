@@ -1,3 +1,5 @@
+You can find this cheat sheet online from Assemble [here](http://assemble.io/docs/Cheatsheet-Markdown.html).
+
 # Typography  
 
 ## Headings

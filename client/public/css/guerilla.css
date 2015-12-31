@@ -73,11 +73,14 @@ li {
   padding-left: 0;
 }
 .power-alert {
-  font-size: 16px;
+  font-size: 12.8px;
   margin: 10px;
 }
 .mobile-alert {
   display: none;
+}
+.modal-p {
+  font-size: 12.8px;
 }
 #wrapper {
   position: absolute;
@@ -88,7 +91,7 @@ li {
   height: 100%;
   width: 100%;
   z-index: 1;
-  background-image: linear-gradient(to top left, #bcbcbc, #e5ded3);
+  background: linear-gradient(to top left, #bcbcbc, #e5ded3);
 }
 .tile {
   padding: 0 15px 15px;
@@ -143,8 +146,41 @@ li {
   font-weight: 300;
 }
 #prices-bar {
-  height: 200px;
   background: #222222;
+  margin: 0 0 20px;
+  padding: 15px;
+}
+#prices-bar .exchange-group {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  color: #b2b2b2;
+}
+#prices-bar .exchange-group h4 {
+  font-size: 17.6px;
+  color: #f2f2f2;
+}
+#prices-bar .exchange-group p {
+  font-size: 12px;
+}
+#prices-bar .exchange-group .details {
+  text-align: right;
+}
+#prices-bar .exchange-group .details .alabel {
+  font-size: 9.6px;
+  margin-bottom: 0;
+}
+#prices-bar .exchange-group .details .numbers {
+  margin-bottom: 5px;
+}
+#prices-bar .exchange-group .details .numbers.vol {
+  color: #f2f2f2;
+}
+#prices-bar .green-text {
+  color: green;
+}
+#prices-bar .red-text {
+  color: red;
 }
 /* slide-out menu */
 .ng-pageslide {
@@ -407,6 +443,16 @@ li.divider {
 .editing-table i {
   font-size: 20.8px;
   vertical-align: bottom;
+}
+.editing-table .advanced-settings a {
+  font-size: 16px;
+}
+.editing-table .advanced-settings a:hover {
+  text-decoration: none;
+  color: black;
+}
+.editing-table .advanced-settings a i {
+  font-size: 19.2px;
 }
 .editing-title {
   margin-bottom: 5px;

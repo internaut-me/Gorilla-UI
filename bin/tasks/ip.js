@@ -1,5 +1,5 @@
 /*!
- * guerilla-mini
+ * gorilla-ui
  * Copyright(c) 2015 Mini Computing, LLC
  * MIT Licensed
  */
