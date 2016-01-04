@@ -8,16 +8,36 @@
 	<div class="container-fluid" id="prices-bar">
 		<div class="col-xs-12 col-md-3">
 			<div class="exchange-group clearfix">
-				<div class="col-xs-6">
-					<p>BITFINEX</p>
-					<h4>$ {{ btfx.price }}</h4>
+				<p>USAGE STATS</p>
+				<div class="col-xs-6 details">
+					<p class="alabel">UPLOAD</p>
+					<p class="numbers vol">204.876 GB</p>
+					<p class="alabel">DOWNLOAD</p>
+					<p class="numbers vol">503.909 GB</p>
+					
 				</div>
 				
 				<div class="col-xs-6 details">
-					<p class="alabel">CHANGE</p>
-					<p class="numbers" ng-class="btfx.up ? 'green-text' : 'red-text'">{{ btfx.chg }}</p>
-					<p class="alabel">VOLUME</p>
-					<p class="numbers vol">{{ btfx.vol }}</p>
+					<p class="alabel">DISKSPACE</p>
+					<p class="numbers vol">124.2 GB</p>
+					<p class="alabel">FREE</p>
+					<p class="numbers vol">67.456 GB</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-md-3">
+			<div class="exchange-group clearfix">
+				<p>BITCOIN STATS</p>
+				<div class="col-xs-6 details">
+					<p class="alabel">BLOCKCHAIN</p>
+					<p class="numbers vol">54.876 GB</p>
+					
+				</div>
+				
+				<div class="col-xs-6 details">
+					<p class="alabel">MINI PEERS</p>
+					<p class="numbers vol">3</p>
+					
 				</div>
 			</div>
 		</div>

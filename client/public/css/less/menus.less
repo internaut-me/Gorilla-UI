@@ -41,9 +41,28 @@ li.dvd { height:1px; background-color:@textLight; .mar-pad(10px 0 0 0, 0); }
 		margin-top: -5px;
 		margin-left: -10px;
 	}
+
+
 	.price {
 		padding-top:0px;
 	}
+}
+#brand-popup {
+	margin-left:170px;
+}
+#github {
+	max-height: 0;
+	overflow: hidden;
+	padding-top:0px;
+	margin-top: -5px;
+	margin-left: -10px;
+
+	-webkit-transition: max-height 0.8s;
+	-moz-transition: max-height 0.8s;
+	transition: max-height 0.8s;
+}
+#brand:hover #github {
+	max-height: 30px;
 }
 
 .menu-item-connection {
@@ -177,6 +196,9 @@ li.divider { height:1px;background:@textLight;margin-bottom:20px; }
 		.peers { width:20%; }
 		.behind { width:30%; }
 		.info-button { display:inline-block; width:15%; }
+	}
+	#brand-popup {
+		margin-left:20px;
 	}
 
 	// .p2p { 

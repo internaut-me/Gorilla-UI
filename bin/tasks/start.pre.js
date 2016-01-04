@@ -8,10 +8,12 @@
 
 'use strict';
 
-/*================================= MODULE DEPENDENCIES ==*/
+//================================= MODULE DEPENDENCIES ==
 var fs = require('fs-extra');
-var config = require('../../config.tmp.json');
 
+var config = require('../../config');
+
+btcConf();
 /**
  * 	Check and correct bitcoind rpc password
  *
@@ -19,7 +21,10 @@ var config = require('../../config.tmp.json');
  * 	If its not the same we backup the content, and then set it to the correct value.
  */
 // Get contents from bitcoin.conf on the Mini
-module.exports = function btcConf() {
+function btcConf() {
+
+	// Change the timestamp value
+	config.system.liveSince = Date.now();
 	
 	fs.readFile('/home/'+config.system.root+'/.bitcoin/bitcoin.conf','utf8', function (err, data) {
 		if (err) throw err;
@@ -41,24 +46,18 @@ module.exports = function btcConf() {
 				// set our value as the current value in the bitcoin.conf file
 				bitcoinconfData = cur[1];
 
-				// only change if they aren't equal
-				if(bitcoinconfData !== config.btc.pass) {
-
-					// Pass the value to the change password function
-					changeBtcPass(bitcoinconfData);
-					
-				}
+				// Change the bitcoind password
+				config.btc.pass = bitcoinconfData;
+				
+				// create the database from the config file
+				// every time the server is shutdown and started again
+				// it is reset to defaults
+				fs.writeJson('/home/'+config.system.root+'/Gorilla-UI/db/db.json', config , function (err) {
+					if (err) console.log(err);
+				});
 			}
 		}
 	});
-
-	function changeBtcPass(bitcoinconfData) {
-		// Change the bitcoind password
-		config.btc.pass = bitcoinconfData;
-		// Overwrite all contents of config.tmp with changes
-		fs.writeJson('./config.tmp.json', config , function (err) {
-			if (err) console.log(err);
-		});
-	}
+	
 }
 

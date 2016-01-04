@@ -7,12 +7,13 @@
   "author": "Ansel Lindner <ansellindner@protonmail.ch>",
   "homepage": "https://github.com/bitcoinmini/gorilla-ui#readme",
   "contributors": [
-  {
-    "name": "INTERNAUT [Steve Johnson] ",
+    {
+      "name": "INTERNAUT [Steve Johnson] ",
       "email": "steve@internaut.me"
     }
   ],
   "scripts": {
+    "prestart":"node ./bin/tasks/start.pre.js",
     "start": "node guerilla.js",
     "email": "node ./bin/tasks/ip-email",
     "update": "node ./bin/tasks/update",
@@ -30,6 +31,7 @@
     "fs-extra": "^0.26.2",
     "get-json": "0.0.2",
     "internal-ip": "^1.1.0",
+    "node-json-db": "^0.5.1",
     "nodemailer": "^1.10.0",
     "nodemailer-direct-transport": "^1.1.0"
   },

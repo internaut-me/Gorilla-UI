@@ -54,7 +54,7 @@
                            data-target="#mobileStatsDropdown" 
                            aria-expanded="false" 
                            aria-controls="collapseExample">
-                           <p><i class="material-icons" style="vertical-align:bottom;">info_outline</i></p>
+                           <p><i class="material-icons" style="vertical-align:bottom;">swap_vert</i></p>
                         </a>
                     </div>
                     <div class="quads livesince">
@@ -111,7 +111,7 @@
                 <!-- Brand -->
                 <li class="menu-item top pull-left" id="brand">
                     <a href="#/home"><img src="public/img/gorilla_orange.png" alt="logo" class="logo"/></a>
-                    <a href="https://github.com/BitcoinMini/Gorilla-UI" target="_blank" class="hidden" id="brand-popup" style="margin-left:20px;"><img src="public/img/github.png" alt="github" class="logo"></a>
+                    <a href="https://github.com/BitcoinMini/Gorilla-UI" target="_blank" id="brand-popup"><img src="public/img/github.png" id="github" alt="github"></a>
                 </li>
                 <li class="menu-item top pull-left">
                     
@@ -214,7 +214,7 @@
              style="position:fixed;left:0;top:0;width:100%;height:100%;z-index:9998;background:rgba(34,34,34,1);padding-top:15%;">
                 <div>
                     <h1 class="text-center"><img src="public/img/loader_large.gif" height="60px"/></h1>
-                    <p class="text-center" style="color:white;">Your Mini is {{ systemMessage }}...</p>
+                    <p class="text-center" style="color:white;">{{ systemMessage }}</p>
                     <p class="text-center" style="color:white;">{{ systemDetails }}</p>
                 </div>
         </div>
@@ -245,7 +245,6 @@
     <!-- Non Angular Scripts Last -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <script src="scripts/logo.js"></script>
     
 </body>
 </html>
