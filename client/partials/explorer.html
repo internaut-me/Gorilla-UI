@@ -1,0 +1,63 @@
+<div class="editing-title container-fluid">
+	<h3>
+		<i class="material-icons xlarge">view_module</i>&nbsp;&nbsp;Blockchain Explorer <small><em>via Blockr</em></small>
+	</h3>
+	<p></p>
+</div>
+
+<div class="editing-table container-fluid">
+
+	<div class="container-fluid">
+		<div class="container-fluid" id="prices-bar">
+		
+			<div class="col-xs-12 col-md-3">
+				<div class="exchange-group clearfix">
+					<div class="col-xs-12 details">
+						<p class="text-left">LAST BLOCK</p>
+						<p class="numbers vol text-left">{{ explorer.last_block.nb }}</p>
+						<p class="alabel text-left">CREATED</p>
+						<p class="numbers vol text-left">{{ explorer.last_block.time_utc }}</p>
+						<p class="alabel text-left">TRANSACTIONS</p>
+						<p class="numbers vol text-left">{{ explorer.last_block.nb_txs }}</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-xs-12 col-md-3">
+				<div class="exchange-group clearfix">
+					<div class="col-xs-12 details">
+						<p class="text-left">DIFFICULTY</p>
+						<p class="numbers vol text-left">{{ explorer.last_block.difficulty }}</p>
+						<p class="alabel text-left">NEXT DIFFICULTY <em>est.</em></p>
+						<p class="numbers vol text-left">{{ explorer.next_difficulty.difficulty }}</p>
+						<p class="alabel text-left">RETARGET IN</p>
+						<p class="numbers vol text-left">{{ explorer.next_difficulty.retarget_in }}</p>
+						<p class="alabel text-left">ESTIMATED CHANGE</p>
+						<p class="numbers vol text-left">{{ explorer.next_difficulty.perc }}</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-xs-12 col-md-3">
+				<div class="exchange-group clearfix">
+					<div class="col-xs-12 details">
+						<p class="text-left">SUPPLY</p>
+						<p class="numbers vol text-left">{{ explorer.volume.current }} <em>BTC</em></p>
+						<p class="alabel text-left">PERCENT OF TOTAL</p>
+						<p class="numbers vol text-left">{{ explorer.volume.perc }}</p>
+						<p class="alabel text-left">HARD LIMIT</p>
+						<p class="numbers vol text-left">{{ explorer.volume.all }}</p>
+					</div>
+				</div>
+			</div>
+			
+
+
+		</div>
+
+		<div class="col-xs-12">{{  }}</div>
+		<div class="col-xs-12">{{  }}</div>
+		<div class="col-xs-12">{{  }}</div>
+    </div>
+    
+</div><!-- / editing-table -->

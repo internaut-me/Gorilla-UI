@@ -34,4 +34,9 @@ var guerilla = angular.module('guerilla', ['pageslide-directive', 'ui.router', '
 	  	templateUrl: "partials/config.html",
 	  	controller: "configController"
 	})
+	.state('explorer', {
+	  	url: "/explorer",
+	  	templateUrl: "partials/explorer.html",
+	  	controller: "explorerController"
+	})
 });

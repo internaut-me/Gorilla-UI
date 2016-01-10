@@ -14,7 +14,6 @@ var ip = internalIp.v4();
 
 module.exports = {
 	"bootMessage": function() {
-		var config = require('../../config');
 		console.log('');
 		console.log('    __  ____       _    ______                            __  _            '.red);
 		console.log('   /  |/  (_)___  (_)  / ____/___  ____ ___  ____  __  __/ /_(_)___  ____ _'.red);
@@ -26,15 +25,12 @@ module.exports = {
 		console.log('MIT License');
 		console.log('===========================================================================');
 		console.log('');
-		console.log('Your Mini can now be accessed via your browser at '+ ip +':' + config.system.PORT);
+		console.log('Your Mini can now be accessed via your browser at '+ ip +':8334');
 		console.log('');
 		console.log('===========================================================================');
 		console.log('');
 	},
 	"saveMessage": function() {
-		//var db = require('./db/db.json');
-		var config = require('../../config');
-
 		console.log('');
 		console.log('CONFIG CHANGES SAVED ON EXIT.'.green);
 		console.log('');

@@ -161,50 +161,73 @@ li {
   }
 }
 /* slide-out menu */
+#home-tiles {
+  margin-bottom: 20px;
+}
 #home-tiles .home-tile {
   width: 100%;
   height: 200px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  position: relative;
 }
 #home-tiles .markets {
   background-image: url('../img/smartphone_in_hands.jpg');
+  background-size: cover;
   z-index: 1;
 }
 #home-tiles .news {
-  background-image: url('../img/newspaper.jpg');
+  background-image: url('../img/storage.jpg');
+  background-size: cover;
+  z-index: 1;
+}
+#home-tiles .bitcoin-tile {
+  background-image: url('../img/bitcoin-back.jpg');
+  background-size: cover;
   z-index: 1;
 }
 #home-tiles .dimmer {
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0, 0.7);
   z-index: 3;
   padding: 10px;
-}
-#home-tiles .dimmer:hover {
-  background: rgba(0, 0, 0, 0.95);
+  position: relative;
 }
 #home-tiles .dimmer .inner-tile {
   height: 100%;
   width: 100%;
-  border: 3px solid #f2f2f2;
+  border: 2px solid #b2b2b2;
   padding: 10px;
-  color: #f2f2f2;
-  font-family: 'Play', sans-serif;
+  color: #b2b2b2;
+  position: relative;
 }
 #home-tiles .dimmer .inner-tile h2 {
-  font-size: 13.2px;
+  font-size: 16.8px;
   font-weight: 500;
-  margin-top: 60%;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  text-align: right;
 }
 #home-tiles .dimmer .inner-tile p {
   font-size: 12px;
   font-weight: 300;
 }
+#home-tiles .dimmer .inner-tile .number-box {
+  position: absolute;
+  bottom: 0;
+}
+#home-tiles .dimmer .inner-tile .number-box p.hnumbers {
+  font-size: 16.8px;
+  color: #f2f2f2;
+  font-family: 'Play', sans-serif;
+}
+#home-tiles .dimmer .inner-tile .number-box p.hlabel {
+  margin-bottom: 1px;
+}
 #prices-bar {
   background: #222222;
   margin: 0 0 20px;
-  padding: 15px;
+  padding: 10px;
 }
 #prices-bar .exchange-group {
   width: 100%;
@@ -237,6 +260,9 @@ li {
 }
 #prices-bar .red-text {
   color: red;
+}
+#explorer-bar {
+  background: #222222;
 }
 /* slide-out menu */
 .ng-pageslide {
