@@ -10,7 +10,6 @@ angular.module('guerilla')
 .controller(
     'homeController', 
     function( $scope, $rootScope ) {
-
         // BitFinex websocket
         ////////////////////////////////////////////////////////////////
         var bitfinex = [];
