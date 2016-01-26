@@ -12,7 +12,6 @@
 angular.module('guerilla').controller(
     'mainController', 
     function( $scope, $http, $q ) {
-
         /**
          *  Variables
          */
@@ -222,4 +221,5 @@ angular.module('guerilla').controller(
         // $scope.$on('HOME', function() { $scope.STATSMENU = false; });
         
         console.log('We have bug and development bounties available. If you find a bug, create a pull request on our the dev repo @ github.com/ansellindner/guerilla. Bounties will be UP TO 0.1 btc for now based on how big it is, and we will increase that as we can. A list of wanted development bounties will soon be available on our subreddit r/bitcoinmini. Decentralize all the things.');
+        
 });

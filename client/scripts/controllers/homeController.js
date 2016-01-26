@@ -9,8 +9,11 @@
 angular.module('guerilla')
 .controller(
     'homeController', 
-    function( $scope, $rootScope ) {
-        // BitFinex websocket
+    function( $scope, $rootScope, $http ) {
+    	$http.get('http://'+ window.location.host +':8334/api/netstat').then(function(response){
+    		$scope.home.netup = response.rx;
+    	});
+    	// BitFinex websocket
         ////////////////////////////////////////////////////////////////
         var bitfinex = [];
         $scope.btfx  = [];
